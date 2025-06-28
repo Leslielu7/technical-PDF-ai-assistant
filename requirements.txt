@@ -1,0 +1,12 @@
+# requirements.txt
+streamlit
+openai
+langchain
+langchain-community
+faiss-cpu
+PyMuPDF
+python-dotenv
+tiktoken
+sentence-transformers
+transformers
+accelerate
