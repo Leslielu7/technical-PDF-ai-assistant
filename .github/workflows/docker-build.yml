@@ -1,5 +1,3 @@
-# ✅ .github/workflows/docker-build.yml
-# ----------------------------------
 name: CI - Build & Lint
 on:
   push:
