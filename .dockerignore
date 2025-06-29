@@ -1,9 +1,14 @@
-.venv/
+# Prevent sensitive files from being copied into Docker image
+.env
+.env.*
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
 *.log
-*.pdf
-.env
-.git/
-.vscode/
+*.sqlite3
+venv/
 .idea/
+.vscode/
+.DS_Store
+*.egg-info/
