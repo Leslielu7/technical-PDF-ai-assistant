@@ -10,7 +10,7 @@ from utils.llm import get_llm
 from utils.qa_chain import build_qa_chain
 from langchain_community.vectorstores import FAISS
 
-dotenv.load_dotenv()
+dotenv.load_dotenv(dotenv.find_dotenv(f".env.{os.getenv('ENV', 'dev')}", raise_error_if_not_found=False))
 
 # --- UI Setup ---
 st.set_page_config(page_title="Chip Spec Assistant", layout="wide")
@@ -39,7 +39,7 @@ if uploaded_file:
         with st.spinner("📄 Processing PDF..."):
             chunks = load_and_split_pdf(tmp_file.name, chunk_size=chunk_size, chunk_overlap=chunk_overlap)
             chunks = chunks[:max_chunks]
-
+    print(f"Chunk slider selected: {max_chunks}, actually loaded: {len(chunks)}")
     st.info(f"📄 Loaded {len(chunks)} chunks from the PDF")
 
     # --- Embedding & Vectorstore ---
